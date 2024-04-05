@@ -1,5 +1,5 @@
 # Anti-Poker
-此 Python 程式利用 Selenium 和 OpenCV 函式庫自動解開撲克牌反爬蟲機制。它透過以下步驟來實現：
+此 Python 程式利用 Selenium 和 OpenCV 函式庫自動解開撲克牌反爬蟲機制。
 
 ## 安裝依賴項
 請確保已安裝以下依賴項，可以運行以下命令來安裝:
