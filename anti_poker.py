@@ -109,7 +109,10 @@ class AntiPoker:
         alert.accept()
 
     def auto_solve(self):
-        while True:
+        attempts = 0
+        max_attempts = 5
+
+        while attempts < max_attempts:
             try:
                 self.solve_poker()
                 self.click_result(self.result_indices)
@@ -120,6 +123,8 @@ class AntiPoker:
                 # 如果解牌失敗，fail_to_solve()才不會報錯
                 self.fail_to_solve()
                 time.sleep(1.5)
+
+                attempts += 1
                 continue
             
             except:
