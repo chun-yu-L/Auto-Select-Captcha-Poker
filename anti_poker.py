@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 import cv2
 import numpy as np
+import time
 
 class AntiPoker:
     def __init__(self, driver):
@@ -106,3 +107,20 @@ class AntiPoker:
     def fail_to_solve(self):
         alert = self.driver.switch_to.alert
         alert.accept()
+
+    def auto_solve(self):
+        while True:
+            try:
+                self.solve_poker()
+                self.click_result(self.result_indices)
+                time.sleep(1)
+                self.submit()
+                time.sleep(1.5)
+                
+                # 如果解牌失敗，fail_to_solve()才不會報錯
+                self.fail_to_solve()
+                time.sleep(1.5)
+                continue
+            
+            except:
+                break
